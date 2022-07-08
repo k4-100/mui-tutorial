@@ -6,7 +6,7 @@ import ButtonGroup from "@mui/material/ButtonGroup";
 import SaveIcon from "@mui/icons-material/Save";
 import DeleteIcon from "@mui/icons-material/Delete";
 import { CheckBox } from "@mui/icons-material";
-import { FormControlLabel } from "@mui/material";
+import { FormControlLabel, TextField } from "@mui/material";
 
 const CheckboxExample = () => {
   const [checked, setChecked] = React.useState(true);
@@ -31,6 +31,7 @@ function App() {
   return (
     <div className="App">
       <header className="App-header">
+        <TextField variant="filled" color="secondary" />
         <CheckboxExample />
         <ButtonGroup variant="contained" size="large">
           <Button
