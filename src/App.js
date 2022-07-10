@@ -1,14 +1,18 @@
 import React from "react";
 import logo from "./logo.svg";
 import "./App.css";
-// import Button from "@mui/material/Button";
-// import ButtonGroup from "@mui/material/ButtonGroup";
+import Button from "@mui/material/Button";
+import ButtonGroup from "@mui/material/ButtonGroup";
+import { TextField } from "@mui/material";
 import SaveIcon from "@mui/icons-material/Save";
 import DeleteIcon from "@mui/icons-material/Delete";
 import { CheckBox } from "@mui/icons-material";
 import { FormControlLabel } from "@mui/material";
 import { styled, createTheme, ThemeProvider } from "@mui/system";
 import { green, orange } from "@mui/material/colors";
+import "@fontsource/roboto";
+
+import { Typography } from "@mui/material";
 
 const customTheme = createTheme({
   palette: {
@@ -64,30 +68,34 @@ const MyThemeComponent = styled("div")(({ theme }) => ({
 function App() {
   return (
     <div className="App">
-      <ThemeProvider theme={customTheme}>
-        <header className="App-header">
-          <MyThemeComponent>sda</MyThemeComponent>
-          {/* <TextField variant="filled" color="secondary" /> */}
-          {/* <CheckboxExample /> */}
-          {/* <ButtonGroup>
-            <Button
-              // startIcon={<SaveIcon />}
-              onClick={() => alert("hello")}
-              // disabled
-            >
-              Save
-            </Button>
-            <Button
-              // startIcon={<DeleteIcon />}
-              onClick={() => alert("hello")}
-              // disabled
-            >
-              Discard
-            </Button>
-          </ButtonGroup> */}
-          <img src={logo} className="App-logo" alt="logo" />
-        </header>
-      </ThemeProvider>
+      {/* <ThemeProvider theme={customTheme}> */}
+      <header className="App-header">
+        {/* <MyThemeComponent>sda</MyThemeComponent> */}
+        {/* <MyThemeComponent>sda</MyThemeComponent>
+          <MyThemeComponent>sda</MyThemeComponent> */}
+
+        <Typography variant="subtitle1">Hello Wordl!</Typography>
+        <TextField variant="filled" color="secondary" />
+        <CheckboxExample />
+        <ButtonGroup>
+          <Button
+            startIcon={<SaveIcon />}
+            onClick={() => alert("hello")}
+            // disabled
+          >
+            Save
+          </Button>
+          <Button
+            startIcon={<DeleteIcon />}
+            onClick={() => alert("hello")}
+            // disabled
+          >
+            Discard
+          </Button>
+        </ButtonGroup>
+        <img src={logo} className="App-logo" alt="logo" />
+      </header>
+      {/* </ThemeProvider> */}
     </div>
   );
 }
