@@ -1,101 +1,36 @@
 import React from "react";
-import logo from "./logo.svg";
+import { Grid, Box, Paper } from "@mui/material";
+import { styled } from "@mui/material/styles";
+
 import "./App.css";
-import Button from "@mui/material/Button";
-import ButtonGroup from "@mui/material/ButtonGroup";
-import { TextField } from "@mui/material";
-import SaveIcon from "@mui/icons-material/Save";
-import DeleteIcon from "@mui/icons-material/Delete";
-import { CheckBox } from "@mui/icons-material";
-import { FormControlLabel } from "@mui/material";
-import { styled, createTheme, ThemeProvider } from "@mui/system";
-import { green, orange } from "@mui/material/colors";
-import "@fontsource/roboto";
 
-import { Typography } from "@mui/material";
-
-const customTheme = createTheme({
-  palette: {
-    primary: {
-      main: green[400],
-      contrastText: "white",
-    },
-    secondary: {
-      main: orange[400],
-    },
-  },
-});
-
-// const ButtonStyled = () => {
-//   const classes = useStyles();
-//   return <Button className={classes.root}>Test Styled Button</Button>;
-// };
-
-// const MyComponent = styled("div")({
-//   color: "darkslategray",
-//   backgroundColor: "aliceblue",
-//   padding: 8,
-//   borderRadius: 4,
-// });
-
-const CheckboxExample = () => {
-  const [checked, setChecked] = React.useState(true);
-  return (
-    <FormControlLabel
-      control={
-        <CheckBox
-          checked={checked}
-          icon={<DeleteIcon />}
-          checkedIcon={<SaveIcon />}
-          onChange={(e) => setChecked(e.target.checked)}
-          inputProps={{
-            "aria-label": "secondary checkbox",
-          }}
-        />
-      }
-      label="testing Checkbox"
-    />
-  );
-};
-
-const MyThemeComponent = styled("div")(({ theme }) => ({
-  color: theme.palette.primary.contrastText,
-  backgroundColor: theme.palette.primary.main,
+const Item = styled(Paper)(({ theme }) => ({
+  backgroundColor: theme.palette.mode === "dark" ? "#1A2027" : "#fff",
+  ...theme.typography.body2,
   padding: theme.spacing(1),
-  borderRadius: theme.shape.borderRadius,
+  textAlign: "center",
+  color: theme.palette.text.secondary,
 }));
 
 function App() {
   return (
     <div className="App">
-      <ThemeProvider theme={customTheme}>
-        <header className="App-header">
-          {/* <MyThemeComponent>sda</MyThemeComponent> */}
-          {/* <MyThemeComponent>sda</MyThemeComponent>
-          <MyThemeComponent>sda</MyThemeComponent> */}
-
-          <Typography variant="subtitle1">Hello Wordl!</Typography>
-          <TextField variant="filled" color="secondary" />
-          <CheckboxExample />
-          <ButtonGroup>
-            <Button
-              startIcon={<SaveIcon />}
-              onClick={() => alert("hello")}
-              // disabled
-            >
-              Save
-            </Button>
-            <Button
-              startIcon={<DeleteIcon />}
-              onClick={() => alert("hello")}
-              // disabled
-            >
-              Discard
-            </Button>
-          </ButtonGroup>
-          <img src={logo} className="App-logo" alt="logo" />
-        </header>
-      </ThemeProvider>
+      <Box sx={{ flexGrow: 1 }}>
+        <Grid container spacing={2}>
+          <Grid item xs={8}>
+            <Item>xs=8</Item>
+          </Grid>
+          <Grid item xs={4}>
+            <Item>xs=4</Item>
+          </Grid>
+          <Grid item xs={4}>
+            <Item>xs=4</Item>
+          </Grid>
+          <Grid item xs={8}>
+            <Item>xs=8</Item>
+          </Grid>
+        </Grid>
+      </Box>
     </div>
   );
 }
