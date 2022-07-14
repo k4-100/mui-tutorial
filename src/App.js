@@ -68,34 +68,34 @@ const MyThemeComponent = styled("div")(({ theme }) => ({
 function App() {
   return (
     <div className="App">
-      {/* <ThemeProvider theme={customTheme}> */}
-      <header className="App-header">
-        {/* <MyThemeComponent>sda</MyThemeComponent> */}
-        {/* <MyThemeComponent>sda</MyThemeComponent>
+      <ThemeProvider theme={customTheme}>
+        <header className="App-header">
+          {/* <MyThemeComponent>sda</MyThemeComponent> */}
+          {/* <MyThemeComponent>sda</MyThemeComponent>
           <MyThemeComponent>sda</MyThemeComponent> */}
 
-        <Typography variant="subtitle1">Hello Wordl!</Typography>
-        <TextField variant="filled" color="secondary" />
-        <CheckboxExample />
-        <ButtonGroup>
-          <Button
-            startIcon={<SaveIcon />}
-            onClick={() => alert("hello")}
-            // disabled
-          >
-            Save
-          </Button>
-          <Button
-            startIcon={<DeleteIcon />}
-            onClick={() => alert("hello")}
-            // disabled
-          >
-            Discard
-          </Button>
-        </ButtonGroup>
-        <img src={logo} className="App-logo" alt="logo" />
-      </header>
-      {/* </ThemeProvider> */}
+          <Typography variant="subtitle1">Hello Wordl!</Typography>
+          <TextField variant="filled" color="secondary" />
+          <CheckboxExample />
+          <ButtonGroup>
+            <Button
+              startIcon={<SaveIcon />}
+              onClick={() => alert("hello")}
+              // disabled
+            >
+              Save
+            </Button>
+            <Button
+              startIcon={<DeleteIcon />}
+              onClick={() => alert("hello")}
+              // disabled
+            >
+              Discard
+            </Button>
+          </ButtonGroup>
+          <img src={logo} className="App-logo" alt="logo" />
+        </header>
+      </ThemeProvider>
     </div>
   );
 }
