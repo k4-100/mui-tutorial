@@ -21,14 +21,21 @@ const Item = styled(Paper)(({ theme }) => ({
 
 function App() {
   const [spacing, setSpacing] = React.useState(1);
+  const [rowSpacing, setRowSpacing] = React.useState(1);
+  const [columnSpacing, setColumnSpacing] = React.useState(1);
 
-  const handleRadioChange = (e) => {
-    setSpacing(Number(e.target.value));
-  };
+  // const handleRadioChange = (e) => {
+  //   setSpacing(Number(e.target.value));
+  // };
   return (
     <div className="App">
       <Box sx={{ flexGrow: 1 }}>
-        <Grid container spacing={spacing}>
+        <Grid
+          container
+          spacing={spacing}
+          rowSpacing={rowSpacing}
+          columnSpacing={columnSpacing}
+        >
           <Grid item xs={12} sm={4}>
             <Item>xs=12 sm=4</Item>
           </Grid>
@@ -48,19 +55,49 @@ function App() {
       </Box>
       <hr />
       <FormControl>
-        <FormLabel id="demo-radio-buttons-group-label">Gender</FormLabel>
+        <FormLabel id="spacing-radio">spacing</FormLabel>
         <RadioGroup
-          aria-labelledby="demo-radio-buttons-group-label"
-          name="radio-buttons-group"
+          aria-labelledby="spacing-radio"
+          name="spacing-radio"
           value={spacing}
           row
-          onChange={(e) => handleRadioChange(e)}
+          onChange={(e) => setSpacing(Number(e.target.value))}
         >
           <FormControlLabel value="0" control={<Radio />} label="0" />
           <FormControlLabel value="0.5" control={<Radio />} label="0.5" />
           <FormControlLabel value="1" control={<Radio />} label="1" />
           <FormControlLabel value="2" control={<Radio />} label="2" />
           <FormControlLabel value="3" control={<Radio />} label="3" />
+        </RadioGroup>
+
+        <FormLabel id="row-spacing-radio"> row spacing</FormLabel>
+        <RadioGroup
+          aria-labelledby="row-spacing-radio"
+          name="row-spacing-radio"
+          value={rowSpacing}
+          row
+          onChange={(e) => setRowSpacing(Number(e.target.value))}
+        >
+          <FormControlLabel value="0" control={<Radio />} label="0" />
+          <FormControlLabel value="1" control={<Radio />} label="1" />
+          <FormControlLabel value="2" control={<Radio />} label="2" />
+          <FormControlLabel value="5" control={<Radio />} label="5" />
+          <FormControlLabel value="10" control={<Radio />} label="10" />
+        </RadioGroup>
+
+        <FormLabel id="column-spacing-radio">column spacing</FormLabel>
+        <RadioGroup
+          aria-labelledby="column-spacing-radio"
+          name="column-spacing-radio"
+          value={columnSpacing}
+          row
+          onChange={(e) => setColumnSpacing(Number(e.target.value))}
+        >
+          <FormControlLabel value="0" control={<Radio />} label="0" />
+          <FormControlLabel value="1" control={<Radio />} label="1" />
+          <FormControlLabel value="2" control={<Radio />} label="2" />
+          <FormControlLabel value="5" control={<Radio />} label="5" />
+          <FormControlLabel value="10" control={<Radio />} label="10" />
         </RadioGroup>
       </FormControl>
     </div>
