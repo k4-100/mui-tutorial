@@ -1,53 +1,27 @@
 import * as React from "react";
-import CheckBox from "@mui/material/Checkbox";
-import { createTheme, ThemeProvider, styled } from "@mui/material/styles";
-import { orange } from "@mui/material/colors";
+import AppBar from "@mui/material/AppBar";
+import Box from "@mui/material/Box";
+import Toolbar from "@mui/material/Toolbar";
+import IconButton from "@mui/material/IconButton";
+import { CameraAlt } from "@mui/icons-material";
 
-const CustomCheckbox = styled(CheckBox)(({ theme }) => ({
-  color: theme.status.danger,
-  "&.Mui-checked": {
-    color: theme.status.danger,
-  },
-}));
-
-const theme = createTheme({
-  status: {
-    danger: orange[500],
-  },
-});
-
-function App() {
+export default function ButtonAppBar() {
   return (
-    <ThemeProvider theme={theme}>
-      <CustomCheckbox defaultChecked />
-    </ThemeProvider>
+    <Box sx={{ flexGrow: 1 }}>
+      <AppBar position="static">
+        <Toolbar>
+          <IconButton
+            size="large"
+            edge="start"
+            color="inherit"
+            aria-label="menu"
+            sx={{ mr: 2 }}
+          >
+            <CameraAlt />
+          </IconButton>
+          <h2>Album Layout</h2>
+        </Toolbar>
+      </AppBar>
+    </Box>
   );
 }
-
-export default App;
-
-// import * as React from "react";
-// import Checkbox from "@mui/material/Checkbox";
-// import { createTheme, ThemeProvider, styled } from "@mui/material/styles";
-// import { orange } from "@mui/material/colors";
-
-// const CustomCheckbox = styled(Checkbox)(({ theme }) => ({
-//   color: theme.status.danger,
-//   "&.Mui-checked": {
-//     color: theme.status.danger,
-//   },
-// }));
-
-// const theme = createTheme({
-//   status: {
-//     danger: orange[500],
-//   },
-// });
-
-// export default function CustomStyles() {
-//   return (
-//     <ThemeProvider theme={theme}>
-//       <CustomCheckbox defaultChecked />
-//     </ThemeProvider>
-//   );
-// }
