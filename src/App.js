@@ -2,9 +2,44 @@ import * as React from "react";
 import AppBar from "@mui/material/AppBar";
 import Box from "@mui/material/Box";
 import Toolbar from "@mui/material/Toolbar";
-import { Button, Container, IconButton, Typography } from "@mui/material";
+import {
+  Button,
+  Container,
+  IconButton,
+  Typography,
+  Card,
+  CardActions,
+  CardContent,
+  CardMedia,
+  Grid,
+} from "@mui/material";
 import { CameraAlt } from "@mui/icons-material";
-import { grey } from "@mui/material/colors";
+
+const CustomCard = () => {
+  return (
+    <Card sx={{ navWidth: 345 }}>
+      <CardMedia
+        component="img"
+        height="140"
+        image="https://picsum.photos/id/200/200"
+        alt="image here"
+      />
+      <CardContent>
+        <Typography gutterBottom variant="h5" component="div">
+          Lizard
+        </Typography>
+        <Typography variant="body2" color="text.secondary">
+          Lizards are a widespread group of squamate reptiles, with over 6,000
+          species, ranging across all continents except Antarctica
+        </Typography>
+      </CardContent>
+      <CardActions>
+        <Button size="small">New</Button>
+        <Button size="small">Edit</Button>
+      </CardActions>
+    </Card>
+  );
+};
 
 export default function ButtonAppBar() {
   return (
@@ -35,20 +70,28 @@ export default function ButtonAppBar() {
       </Typography>
       <Typography
         variant="h6"
+        color="text.secondary"
         align="center"
         gutterBottom={true}
-        sx={{ mx: "auto", width: 1 / 2, color: grey[800] }}
+        sx={{ mx: "auto", width: 1 / 2 }}
       >
         Lorem ipsum dolor sit amet consectetur adipisicing elit. Similique vel
         minus voluptatibus. Mollitia, maxime accusamus error nihil nam possimus
         impedit?
       </Typography>
-      <Container align="center" sx={{ width: 1 / 2, mt: 3 }}>
+      <Container align="center" glutterBottom sx={{ width: 1 / 2, mt: 3 }}>
         <Button variant="contained" sx={{ mr: 1 }}>
           Main Call To Action
         </Button>
         <Button variant="outlined">Secondary Action</Button>
       </Container>
+      <Grid container spacing={2} sx={{ mt: 5 }}>
+        <Grid container item>
+          <CustomCard />
+          <CustomCard />
+          <CustomCard />
+        </Grid>
+      </Grid>
     </>
   );
 }
