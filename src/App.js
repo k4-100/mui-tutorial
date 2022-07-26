@@ -2,7 +2,7 @@ import * as React from "react";
 import AppBar from "@mui/material/AppBar";
 import Box from "@mui/material/Box";
 import Toolbar from "@mui/material/Toolbar";
-import { IconButton, Typography } from "@mui/material";
+import { Button, Container, IconButton, Typography } from "@mui/material";
 import { CameraAlt } from "@mui/icons-material";
 import { grey } from "@mui/material/colors";
 
@@ -36,13 +36,19 @@ export default function ButtonAppBar() {
       <Typography
         variant="h6"
         align="center"
-        // lg={{ mx: 8 }}
-        sx={{ mx: "auto", width: "50%", color: grey[800] }}
+        gutterBottom={true}
+        sx={{ mx: "auto", width: 1 / 2, color: grey[800] }}
       >
         Lorem ipsum dolor sit amet consectetur adipisicing elit. Similique vel
         minus voluptatibus. Mollitia, maxime accusamus error nihil nam possimus
         impedit?
       </Typography>
+      <Container align="center" sx={{ width: 1 / 2, mt: 3 }}>
+        <Button variant="contained" sx={{ mr: 1 }}>
+          Main Call To Action
+        </Button>
+        <Button variant="outlined">Secondary Action</Button>
+      </Container>
     </>
   );
 }
