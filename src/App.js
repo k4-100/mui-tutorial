@@ -17,11 +17,11 @@ import { CameraAlt } from "@mui/icons-material";
 
 const CustomCard = () => {
   return (
-    <Card sx={{ navWidth: 345 }}>
+    <Card sx={{ mb: 4 }}>
       <CardMedia
         component="img"
         height="140"
-        image="https://picsum.photos/id/200/200"
+        image="https://picsum.photos/id/250/500"
         alt="image here"
       />
       <CardContent>
@@ -85,13 +85,28 @@ export default function ButtonAppBar() {
         </Button>
         <Button variant="outlined">Secondary Action</Button>
       </Container>
-      <Grid container spacing={2} sx={{ mt: 5 }}>
-        <Grid container item>
-          <CustomCard />
-          <CustomCard />
-          <CustomCard />
+      <Container>
+        <Grid container spacing={2} columns={{ xs: 1, sm: 3 }} mt={4}>
+          <Grid item xs={1}>
+            <CustomCard />
+          </Grid>
+          <Grid item xs={1}>
+            <CustomCard />
+          </Grid>
+          <Grid item xs={1}>
+            <CustomCard />
+          </Grid>
+          <Grid item xs={1}>
+            <CustomCard />
+          </Grid>
+          <Grid item xs={1}>
+            <CustomCard />
+          </Grid>
+          <Grid item xs={1}>
+            <CustomCard />
+          </Grid>
         </Grid>
-      </Grid>
+      </Container>
     </>
   );
 }
