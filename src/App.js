@@ -20,7 +20,7 @@ const CustomCard = () => {
     <Card sx={{ mb: 4 }}>
       <CardMedia
         component="img"
-        height="140"
+        height="200"
         image="https://picsum.photos/id/250/500"
         alt="image here"
       />
@@ -68,25 +68,29 @@ export default function ButtonAppBar() {
       >
         Album Layout
       </Typography>
-      <Typography
-        variant="h6"
-        color="text.secondary"
-        align="center"
-        gutterBottom={true}
-        sx={{ mx: "auto", width: 1 / 2 }}
-      >
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Similique vel
-        minus voluptatibus. Mollitia, maxime accusamus error nihil nam possimus
-        impedit?
-      </Typography>
+      <Container>
+        <Typography
+          variant="h5"
+          color="text.secondary"
+          align="center"
+          // gutterBottom={true}
+          sx={{ mx: "auto", width: 1 / 2 }}
+        >
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Similique vel
+          minus voluptatibus. Mollitia, maxime accusamus error nihil nam
+          possimus impedit?
+        </Typography>
+      </Container>
       <Container align="center" glutterBottom sx={{ width: 1 / 2, mt: 3 }}>
-        <Button variant="contained" sx={{ mr: 1 }}>
+        <Button variant="contained" sx={{ mx: 1, mt: 1 }}>
           Main Call To Action
         </Button>
-        <Button variant="outlined">Secondary Action</Button>
+        <Button variant="outlined" sx={{ mx: 1, mt: 1 }}>
+          Secondary Action
+        </Button>
       </Container>
       <Container>
-        <Grid container spacing={2} columns={{ xs: 1, sm: 3 }} mt={4}>
+        <Grid container spacing={2} columns={{ xs: 1, sm: 2, md: 3 }} mt={4}>
           <Grid item xs={1}>
             <CustomCard />
           </Grid>
