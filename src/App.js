@@ -12,6 +12,7 @@ import {
   CardContent,
   CardMedia,
   Grid,
+  Link,
 } from "@mui/material";
 import { CameraAlt } from "@mui/icons-material";
 
@@ -38,6 +39,33 @@ const CustomCard = () => {
         <Button size="small">Edit</Button>
       </CardActions>
     </Card>
+  );
+};
+
+const Footer = () => {
+  return (
+    <footer>
+      <Container sx={{ width: 1 / 2, my: 7 }}>
+        <Typography variant="h6" align="center" sx={{ mb: 1 }}>
+          Footer
+        </Typography>
+        <Typography variant="body1" align="center" color="text.secondary">
+          Something here to give the footer a purpose
+        </Typography>
+        <Typography variant="body1" align="center" color="text.secondary">
+          Copyright ©
+          <Link
+            href="#"
+            color="text.secondary"
+            underline="always"
+            sx={{ mx: 0.5 }}
+          >
+            Your Website
+          </Link>
+          2022
+        </Typography>
+      </Container>
+    </footer>
   );
 };
 
@@ -111,6 +139,7 @@ export default function ButtonAppBar() {
           </Grid>
         </Grid>
       </Container>
+      <Footer />
     </>
   );
 }
