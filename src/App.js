@@ -15,9 +15,9 @@ export default function App() {
   return (
     <>
       <Container
-        sx={{ mt: 8, px: 1, textAlign: "center", width: "min(450px, 100%)" }}
+        sx={{ mt: 9, px: 1, textAlign: "center", width: "min(450px, 100%)" }}
       >
-        <Box>
+        <Box sx={{ mb: 3 }}>
           <LockOutlined
             sx={{
               background: "purple",
@@ -26,11 +26,11 @@ export default function App() {
               p: 1,
             }}
           />
-          <Typography variant="h5" sx={{ mt: 1, mb: 2 }}>
+          <Typography variant="h5" sx={{ mt: 1 }}>
             Sign In
           </Typography>
         </Box>
-        <Box sx={{ display: "flex", flexDirection: "column" }}>
+        <Box sx={{ display: "flex", flexDirection: "column", mb: 1 }}>
           <TextField
             id="email"
             label="Email Address *"
@@ -42,17 +42,37 @@ export default function App() {
         <FormControlLabel
           control={<Checkbox />}
           label="Remember me"
-          sx={{ width: "100%" }}
+          sx={[
+            {
+              width: "100%",
+              display: "flex",
+              alignItems: "",
+              "& .MuiFormControlLabel-label": {
+                mt: 0.5,
+              },
+            },
+          ]}
         />
-        <Button variant="contained" sx={{ display: "block" }}>
+        <Button
+          variant="contained"
+          sx={{ display: "block", width: 1, mt: 2, mb: 1 }}
+        >
           Sign in
         </Button>
-        <Box>
-          <Link href="#">Forgot password</Link>
-          <Link href="#">Don't have an account? Sign Up</Link>
+        <Box display={"flex"} sx={{ justifyContent: "space-between", my: 2 }}>
+          <Link href="#" variant="body2">
+            Forgot password?
+          </Link>
+          <Link href="#" variant="body2">
+            Don't have an account? Sign Up
+          </Link>
         </Box>
-        <Typography>
-          Copyright © <Link href="#">Your Website</Link> 2022.
+        <Typography color="text.secondary" sx={{ mt: 10 }}>
+          Copyright ©{" "}
+          <Link href="#" color="text.secondary">
+            Your Website
+          </Link>{" "}
+          2022.
         </Typography>
       </Container>
     </>
