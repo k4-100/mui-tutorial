@@ -1,5 +1,5 @@
 import * as React from "react";
-import { LockOutlined } from "@mui/icons-material";
+import { LockOutlined, LockRounded } from "@mui/icons-material";
 import {
   Container,
   Typography,
@@ -14,9 +14,20 @@ import {
 export default function App() {
   return (
     <>
-      <Container sx={{ mt: 5 }}>
-        <LockOutlined fontSize="large" color="secondary" />
-        <Typography>Sign In</Typography>
+      <Container
+        sx={{ mt: 8, px: 1, textAlign: "center", width: "min(450px, 100%)" }}
+      >
+        <Box>
+          <LockOutlined
+            sx={{
+              background: "purple",
+              color: "white",
+              borderRadius: "50%",
+              p: 1,
+            }}
+          />
+          <Typography>Sign In</Typography>
+        </Box>
         <Box sx={{ display: "flex", flexDirection: "column" }}>
           <TextField id="email" label="Email Address *" variant="outlined" />
           <TextField id="password" label="Password *" variant="outlined" />
