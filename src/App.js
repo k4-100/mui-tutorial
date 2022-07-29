@@ -67,7 +67,7 @@ export default function App() {
             Don't have an account? Sign Up
           </Link>
         </Box>
-        <Typography color="text.secondary" sx={{ mt: 10 }}>
+        <Typography color="text.secondary" variant="body2" sx={{ mt: 10 }}>
           Copyright ©{" "}
           <Link href="#" color="text.secondary">
             Your Website
