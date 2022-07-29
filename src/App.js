@@ -26,13 +26,24 @@ export default function App() {
               p: 1,
             }}
           />
-          <Typography>Sign In</Typography>
+          <Typography variant="h5" sx={{ mt: 1, mb: 2 }}>
+            Sign In
+          </Typography>
         </Box>
         <Box sx={{ display: "flex", flexDirection: "column" }}>
-          <TextField id="email" label="Email Address *" variant="outlined" />
+          <TextField
+            id="email"
+            label="Email Address *"
+            variant="outlined"
+            sx={{ mb: 3 }}
+          />
           <TextField id="password" label="Password *" variant="outlined" />
         </Box>
-        <FormControlLabel control={<Checkbox />} label="Remember me" />
+        <FormControlLabel
+          control={<Checkbox />}
+          label="Remember me"
+          sx={{ width: "100%" }}
+        />
         <Button variant="contained" sx={{ display: "block" }}>
           Sign in
         </Button>
