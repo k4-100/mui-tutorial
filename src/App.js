@@ -11,112 +11,93 @@ import {
 } from "@mui/material";
 import * as React from "react";
 
+const CustomCard = () => {
+  return (
+    <Grid item>
+      <Card>
+        <CardContent>adsada</CardContent>
+        <CardActions>
+          <Button>words</Button>
+        </CardActions>
+      </Card>
+    </Grid>
+  );
+};
+
+const CustomList = () => {
+  return (
+    <Grid item container>
+      <Grid item>
+        <Typography>Company</Typography>
+      </Grid>
+      <Grid item>
+        <Typography>Company</Typography>
+      </Grid>
+      <Grid item>
+        <Typography>Company</Typography>
+      </Grid>
+    </Grid>
+  );
+};
+
 export default function App() {
   return (
     <>
-      <AppBar
+      <Box sx={{ flexGrow: 1 }}>
+        <AppBar
+          sx={{
+            position: "static",
+          }}
+        >
+          <Toolbar>
+            <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
+              Company name
+            </Typography>
+            <Box>
+              <Button sx={{ color: "white" }}>Features</Button>
+              <Button sx={{ color: "white" }}>Enterprise</Button>
+              <Button sx={{ color: "white" }}>Support</Button>
+              <Button variant="outlined" color="secondary">
+                Login
+              </Button>
+            </Box>
+          </Toolbar>
+        </AppBar>
+      </Box>
+      <Typography
+        variant="h4"
+        align="center"
         sx={{
-          position: "static",
+          mt: 10,
         }}
       >
-        <Toolbar>
-          <h3>Company name</h3>
-          <Box>
-            <Button variant="text" color="error">
-              Features
-            </Button>
-            <Button color="error">Enterprise</Button>
-            <Button color="error">Support</Button>
-            <Button variant="outlined" color="error">
-              Login
-            </Button>
-          </Box>
-        </Toolbar>
-      </AppBar>
-      <Typography>Pricing</Typography>
-      <Typography>
+        Pricing
+      </Typography>
+      <Typography
+        color="text.secondary"
+        variant="h5"
+        align="center"
+        sx={{
+          width: 2 / 3,
+          mt: 1,
+          mx: "auto",
+        }}
+      >
         Quickly build an effective pricing table for your potential customers
         with this layout. It's built with default MUI components with little
         customization.
       </Typography>
 
-      <Grid
-        container
-        sx={{
-          background: "red",
-          mt: 5,
-        }}
-      >
-        <Grid item>
-          <Card>
-            <CardContent>adsada</CardContent>
-            <CardActions>
-              <Button>words</Button>
-            </CardActions>
-          </Card>
-        </Grid>
-        <Grid>
-          <Card item>
-            <CardContent>adsada</CardContent>
-            <CardActions>
-              <Button>words</Button>
-            </CardActions>
-          </Card>
-        </Grid>
-        <Grid>
-          <Card item>
-            <CardContent>adsada</CardContent>
-            <CardActions>
-              <Button>words</Button>
-            </CardActions>
-          </Card>
-        </Grid>
+      <Grid container>
+        <CustomCard />
+        <CustomCard />
+        <CustomCard />
       </Grid>
       <Grid container>
-        <Grid item container>
-          <Grid item>
-            <Typography>Company</Typography>
-          </Grid>
-          <Grid item>
-            <Typography>Company</Typography>
-          </Grid>
-          <Grid item>
-            <Typography>Company</Typography>
-          </Grid>
-        </Grid>
-        <Grid item container>
-          <Grid item>
-            <Typography>Company</Typography>
-          </Grid>
-          <Grid item>
-            <Typography>Company</Typography>
-          </Grid>
-          <Grid item>
-            <Typography>Company</Typography>
-          </Grid>
-        </Grid>
-        <Grid item container>
-          <Grid item>
-            <Typography>Company</Typography>
-          </Grid>
-          <Grid item>
-            <Typography>Company</Typography>
-          </Grid>
-          <Grid item>
-            <Typography>Company</Typography>
-          </Grid>
-        </Grid>
-        <Grid item container>
-          <Grid item>
-            <Typography>Company</Typography>
-          </Grid>
-          <Grid item>
-            <Typography>Company</Typography>
-          </Grid>
-          <Grid item>
-            <Typography>Company</Typography>
-          </Grid>
-        </Grid>
+        <CustomList />
+        <CustomList />
+        <CustomList />
+        <CustomList />
       </Grid>
       <Typography>Copyright © Your Website 2022.</Typography>
     </>
