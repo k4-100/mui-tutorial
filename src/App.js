@@ -14,10 +14,23 @@ import * as React from "react";
 const CustomCard = () => {
   return (
     <Grid item>
-      <Card>
-        <CardContent>adsada</CardContent>
+      <Card background="secondary">
+        <CardContent>
+          <Box>
+            <Typography>Free</Typography>
+          </Box>
+          <Box>
+            <Typography>$0/mo</Typography>
+          </Box>
+          <Box>
+            <Typography>10 users included</Typography>
+            <Typography>2 GB of storage </Typography>
+            <Typography>Help center access</Typography>
+            <Typography>Email </Typography>
+          </Box>
+        </CardContent>
         <CardActions>
-          <Button>words</Button>
+          <Button>Sign up for free</Button>
         </CardActions>
       </Card>
     </Grid>
