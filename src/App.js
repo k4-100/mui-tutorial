@@ -10,6 +10,7 @@ import {
   Grid,
   CssBaseline,
   CardHeader,
+  Divider,
 } from "@mui/material";
 import { grey } from "@mui/material/colors";
 import { ThemeProvider, createTheme } from "@mui/material/styles";
@@ -92,15 +93,29 @@ const CustomCard = () => {
 
 const CustomList = () => {
   return (
-    <Grid item container>
-      <Grid item>
+    <Grid
+      item
+      xs={1}
+      container
+      columns={{ xs: 1 }}
+      sx={{
+        mb: 2,
+      }}
+    >
+      <Grid item xs={1}>
         <Typography>Company</Typography>
       </Grid>
-      <Grid item>
-        <Typography>Company</Typography>
+      <Grid item xs={1}>
+        <Typography>Team</Typography>
       </Grid>
-      <Grid item>
-        <Typography>Company</Typography>
+      <Grid item xs={1}>
+        <Typography>History</Typography>
+      </Grid>
+      <Grid item xs={1}>
+        <Typography>Contact Us</Typography>
+      </Grid>
+      <Grid item xs={1}>
+        <Typography>Locations</Typography>
       </Grid>
     </Grid>
   );
@@ -167,13 +182,26 @@ export default function App() {
         sx={{
           width: "min(800px, 100%)",
           mx: "auto",
+          mb: 3,
         }}
       >
         <CustomCard />
         <CustomCard />
         <CustomCard />
       </Grid>
-      <Grid container>
+      <Divider
+        variant="middle"
+        sx={{
+          mb: 4,
+        }}
+      />
+      <Grid
+        container
+        columns={{ xs: 3 }}
+        sx={{
+          mx: 3,
+        }}
+      >
         <CustomList />
         <CustomList />
         <CustomList />
