@@ -11,6 +11,7 @@ import {
   CssBaseline,
   CardHeader,
   Divider,
+  Link,
 } from "@mui/material";
 import { grey } from "@mui/material/colors";
 import { ThemeProvider, createTheme } from "@mui/material/styles";
@@ -207,7 +208,25 @@ export default function App() {
         <CustomList />
         <CustomList />
       </Grid>
-      <Typography>Copyright © Your Website 2022.</Typography>
+      <Typography
+        align="center"
+        variant="body2"
+        sx={{
+          my: 3,
+        }}
+      >
+        Copyright ©
+        <Link
+          href="#"
+          variant="body2"
+          // underline="none"
+          color="text.primary"
+          sx={{ mx: 1 }}
+        >
+          Your Website
+        </Link>
+        2022.
+      </Typography>
     </ThemeProvider>
   );
 }
