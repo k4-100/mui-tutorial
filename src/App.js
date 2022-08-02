@@ -23,8 +23,8 @@ const darkTheme = createTheme({
 
 const CustomCard = () => {
   return (
-    <Grid item>
-      <Card background="secondary" sx={{ width: "240px" }}>
+    <Grid item xs={1}>
+      <Card background="secondary" sx={{ width: "240px", mx: "auto", mb: 1 }}>
         <CardHeader
           title="Free"
           titleTypographyProps={{
@@ -156,7 +156,19 @@ export default function App() {
         customization.
       </Typography>
 
-      <Grid container>
+      <Grid
+        container
+        justifyContent="space-between"
+        alignItems="center"
+        columns={{
+          xs: 1,
+          md: 3,
+        }}
+        sx={{
+          width: "min(800px, 100%)",
+          mx: "auto",
+        }}
+      >
         <CustomCard />
         <CustomCard />
         <CustomCard />
