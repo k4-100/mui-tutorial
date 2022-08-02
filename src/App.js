@@ -9,7 +9,9 @@ import {
   CardActions,
   Grid,
   CssBaseline,
+  CardHeader,
 } from "@mui/material";
+import { grey } from "@mui/material/colors";
 import { ThemeProvider, createTheme } from "@mui/material/styles";
 import * as React from "react";
 
@@ -23,10 +25,18 @@ const CustomCard = () => {
   return (
     <Grid item>
       <Card background="secondary">
+        <CardHeader
+          title="Free"
+          titleTypographyProps={{
+            color: "primary",
+          }}
+          sx={{
+            background: grey[800],
+            textAlign: "center",
+            fontWeight: "bold",
+          }}
+        />
         <CardContent>
-          <Box>
-            <Typography>Free</Typography>
-          </Box>
           <Box>
             <Typography>$0/mo</Typography>
           </Box>
@@ -100,9 +110,10 @@ export default function App() {
         variant="h5"
         align="center"
         sx={{
-          width: 2 / 3,
+          width: 1 / 2,
           mt: 1,
           mx: "auto",
+          mb: 5,
         }}
       >
         Quickly build an effective pricing table for your potential customers
