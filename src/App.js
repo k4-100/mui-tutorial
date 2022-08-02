@@ -9,7 +9,14 @@ import {
   CardActions,
   Grid,
 } from "@mui/material";
+import { ThemeProvider, createTheme } from "@mui/material/styles";
 import * as React from "react";
+
+const darkTheme = createTheme({
+  palette: {
+    mode: "dark",
+  },
+});
 
 const CustomCard = () => {
   return (
@@ -55,7 +62,7 @@ const CustomList = () => {
 
 export default function App() {
   return (
-    <>
+    <ThemeProvider theme={darkTheme}>
       <Box sx={{ flexGrow: 1 }}>
         <AppBar
           sx={{
@@ -67,9 +74,9 @@ export default function App() {
               Company name
             </Typography>
             <Box>
-              <Button sx={{ color: "white" }}>Features</Button>
-              <Button sx={{ color: "white" }}>Enterprise</Button>
-              <Button sx={{ color: "white" }}>Support</Button>
+              <Button>Features</Button>
+              <Button>Enterprise</Button>
+              <Button>Support</Button>
               <Button variant="outlined" color="secondary">
                 Login
               </Button>
@@ -113,6 +120,6 @@ export default function App() {
         <CustomList />
       </Grid>
       <Typography>Copyright © Your Website 2022.</Typography>
-    </>
+    </ThemeProvider>
   );
 }
