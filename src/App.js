@@ -8,6 +8,7 @@ import {
   CardContent,
   CardActions,
   Grid,
+  CssBaseline,
 } from "@mui/material";
 import { ThemeProvider, createTheme } from "@mui/material/styles";
 import * as React from "react";
@@ -63,6 +64,7 @@ const CustomList = () => {
 export default function App() {
   return (
     <ThemeProvider theme={darkTheme}>
+      <CssBaseline />
       <Box sx={{ flexGrow: 1 }}>
         <AppBar
           sx={{
