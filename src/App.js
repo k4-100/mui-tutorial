@@ -24,7 +24,7 @@ const darkTheme = createTheme({
 const CustomCard = () => {
   return (
     <Grid item>
-      <Card background="secondary">
+      <Card background="secondary" sx={{ width: "240px" }}>
         <CardHeader
           title="Free"
           titleTypographyProps={{
@@ -36,19 +36,54 @@ const CustomCard = () => {
             fontWeight: "bold",
           }}
         />
-        <CardContent>
-          <Box>
-            <Typography>$0/mo</Typography>
+        <CardContent
+          sx={{
+            textAlign: "center",
+          }}
+        >
+          <Box
+            sx={{
+              display: "flex",
+              justifyContent: "center",
+              mb: 1,
+            }}
+          >
+            <Typography
+              variant="h5"
+              sx={{
+                fontWeight: "bold",
+              }}
+            >
+              $0
+            </Typography>
+
+            <Typography
+              variant="body1"
+              sx={{
+                alignSelf: "flex-end",
+              }}
+            >
+              {" "}
+              /mo{" "}
+            </Typography>
           </Box>
           <Box>
             <Typography>10 users included</Typography>
             <Typography>2 GB of storage </Typography>
             <Typography>Help center access</Typography>
-            <Typography>Email </Typography>
+            <Typography>Email support</Typography>
           </Box>
         </CardContent>
         <CardActions>
-          <Button>Sign up for free</Button>
+          <Button
+            variant="outlined"
+            sx={{
+              mx: "auto",
+              width: 1,
+            }}
+          >
+            Sign up for free
+          </Button>
         </CardActions>
       </Card>
     </Grid>
