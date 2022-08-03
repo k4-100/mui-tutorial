@@ -4,9 +4,13 @@ import {
   Toolbar,
   Typography,
   Box,
-  FormControl,
+  FormControlLabel,
+  Checkbox,
+  FormGroup,
   TextField,
   Grid,
+  Button,
+  Link,
 } from "@mui/material";
 import * as React from "react";
 
@@ -41,6 +45,7 @@ const App = () => {
         <Box
           sx={{
             display: "flex",
+            mt: 3,
           }}
         >
           <Typography>1 Shiping address</Typography>
@@ -62,12 +67,12 @@ const App = () => {
         >
           Shipping Address
         </Typography>
-        <FormControl>
+        <FormGroup>
           <Grid
             container
             sx={{
               "& > *": {
-                my: 1,
+                my: 2,
               },
             }}
           >
@@ -144,13 +149,37 @@ const App = () => {
               />
               <TextField
                 id="standard-basic"
-                label="Country"
+                label="Country*"
                 variant="standard"
               />
             </Grid>
           </Grid>
-        </FormControl>
+          <FormGroup>
+            <FormControlLabel
+              control={<Checkbox defaultChecked />}
+              label="Use this address for payment details"
+            />
+          </FormGroup>
+          <Button
+            variant="contained"
+            sx={{
+              mt: 2,
+              ml: "auto",
+            }}
+          >
+            Next
+          </Button>
+        </FormGroup>
       </Paper>
+
+      <Typography
+        align="center"
+        sx={{
+          mt: 5,
+        }}
+      >
+        Copyright © <Link color="text.secondary"> Your website</Link> 2022
+      </Typography>
     </>
   );
 };
