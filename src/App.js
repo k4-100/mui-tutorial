@@ -95,12 +95,13 @@ const CustomCard = () => {
 const CustomList = () => {
   return (
     <Grid
-      item
-      xs={1}
+      // xs={1}
       container
+      item
       columns={{ xs: 1 }}
       sx={{
         mb: 2,
+        flex: 1,
       }}
     >
       <Grid item xs={1}>
@@ -198,9 +199,16 @@ export default function App() {
       />
       <Grid
         container
-        columns={{ xs: 3 }}
         sx={{
           mx: 3,
+          flexDirection: {
+            xs: "column",
+            sm: "row",
+          },
+          flexGrow: 1,
+          "& > *": {
+            textAlign: "center",
+          },
         }}
       >
         <CustomList />
