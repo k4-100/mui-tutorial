@@ -72,7 +72,7 @@ const App = () => {
             container
             sx={{
               "& > *": {
-                my: 2,
+                my: "18px",
               },
             }}
           >
@@ -174,6 +174,8 @@ const App = () => {
 
       <Typography
         align="center"
+        variant="subtitle1"
+        color="text.secondary"
         sx={{
           mt: 5,
         }}
