@@ -14,6 +14,48 @@ import {
 } from "@mui/material";
 import * as React from "react";
 
+const NumberedText = () => {
+  return (
+    <Typography
+      variant="subtitle2"
+      sx={{
+        mx: "auto",
+        display: "flex",
+        alignItems: "center",
+        position: "relative",
+        "& > *:after": {
+          width: "20px",
+          height: "1px",
+          content: '"."',
+          background: "gray",
+          display: "block",
+          position: "absolute",
+          top: "50%",
+          right: "-25px",
+        },
+      }}
+    >
+      <Box
+        color="white"
+        sx={{
+          mr: 1,
+          width: "25px",
+          height: "25px",
+          boxSizing: "border-box",
+          display: "flex",
+          justifyContent: "center",
+          alignItems: "flex-end",
+          backgroundColor: "text.secondary",
+          borderRadius: "50%",
+        }}
+      >
+        <Typography variant="subtitle2">2</Typography>
+      </Box>
+      Shiping address
+    </Typography>
+  );
+};
+
 const App = () => {
   return (
     <>
@@ -48,15 +90,9 @@ const App = () => {
             mt: 3,
           }}
         >
-          <Typography>1 Shiping address</Typography>
-          <Typography
-            sx={{
-              mx: "auto",
-            }}
-          >
-            1 Shiping address
-          </Typography>
-          <Typography>1 Shiping address</Typography>
+          <NumberedText />
+          <NumberedText />
+          <NumberedText />
         </Box>
         <Typography
           variant="h6"
