@@ -1,5 +1,6 @@
 import * as React from "react";
 import { styled, createTheme, ThemeProvider } from "@mui/system";
+import { Typography } from "@mui/material";
 
 const customTheme = createTheme({
   components: {
@@ -15,6 +16,10 @@ const customTheme = createTheme({
           color: "darkred",
           background: "pink",
         },
+        warning: {
+          color: "white",
+          background: "yellow",
+        },
       },
       variants: [
         {
@@ -27,6 +32,12 @@ const customTheme = createTheme({
           props: { variant: "dashed", color: "secondary" },
           style: {
             border: "1px dashed darkred",
+          },
+        },
+        {
+          props: { variant: "dashed", color: "warning" },
+          style: {
+            border: "1px dashed darkyellow",
           },
         },
       ],
@@ -44,6 +55,7 @@ const MyThemeComponent = styled("div", {
     styles.root,
     props.color === "primary" && styles.primary,
     props.color === "secondary" && styles.secondary,
+    props.color === "warning" && styles.warning,
   ],
 })(({ theme }) => ({
   backgroundColor: "aliceblue",
@@ -52,14 +64,20 @@ const MyThemeComponent = styled("div", {
 
 const App = () => {
   return (
-    <ThemeProvider theme={customTheme}>
-      <MyThemeComponent sx={{ m: 1 }} color="primary" variant="dashed">
-        Primary
-      </MyThemeComponent>
-      <MyThemeComponent sx={{ m: 1 }} color="secondary">
-        Secondary
-      </MyThemeComponent>
-    </ThemeProvider>
+    <>
+      <ThemeProvider theme={customTheme}>
+        <MyThemeComponent sx={{ m: 1 }} color="primary" variant="dashed">
+          Primary
+        </MyThemeComponent>
+        <MyThemeComponent sx={{ m: 1 }} color="secondary">
+          Secondary
+        </MyThemeComponent>
+        <MyThemeComponent sx={{ m: 1 }} color="warning">
+          Warning
+        </MyThemeComponent>
+        <MyThemeComponent sx={{ m: 1 }}>None</MyThemeComponent>
+      </ThemeProvider>
+    </>
   );
 };
 
