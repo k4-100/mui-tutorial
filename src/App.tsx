@@ -1,6 +1,11 @@
 import * as React from "react";
 import { styled, createTheme, ThemeProvider } from "@mui/system";
 
+interface MyThemeComponentProps {
+  color?: "primary" | "secondary" | "warning";
+  variant?: "normal" | "dashed";
+}
+
 const customTheme = createTheme({
   components: {
     MyThemeComponent: {
@@ -56,7 +61,7 @@ const MyThemeComponent = styled("div", {
     props.color === "secondary" && styles.secondary,
     props.color === "warning" && styles.warning,
   ],
-})(({ theme }) => ({
+})<MyThemeComponentProps>(({ theme }) => ({
   backgroundColor: "aliceblue",
   padding: theme.spacing(1),
 }));
@@ -65,7 +70,7 @@ const App = () => {
   return (
     <>
       <ThemeProvider theme={customTheme}>
-        {/* <MyThemeComponent sx={{ m: 1 }} color="primary" variant="dashed">
+        <MyThemeComponent sx={{ m: 1 }} color="primary" variant="dashed">
           Primary
         </MyThemeComponent>
         <MyThemeComponent sx={{ m: 1 }} color="secondary">
@@ -74,7 +79,7 @@ const App = () => {
         <MyThemeComponent sx={{ m: 1 }} color="warning">
           Warning
         </MyThemeComponent>
-        <MyThemeComponent sx={{ m: 1 }}>None</MyThemeComponent> */}
+        <MyThemeComponent sx={{ m: 1 }}>None</MyThemeComponent>
         words
       </ThemeProvider>
     </>
