@@ -66,7 +66,7 @@ const MyThemeComponent = styled("div", {
   padding: theme.spacing(1),
 }));
 
-const App = () => {
+const App: React.FC = () => {
   return (
     <>
       <ThemeProvider theme={customTheme}>
