@@ -1,6 +1,5 @@
 import * as React from "react";
 import { styled, createTheme, ThemeProvider } from "@mui/system";
-import { Typography } from "@mui/material";
 
 const customTheme = createTheme({
   components: {
@@ -66,7 +65,7 @@ const App = () => {
   return (
     <>
       <ThemeProvider theme={customTheme}>
-        <MyThemeComponent sx={{ m: 1 }} color="primary" variant="dashed">
+        {/* <MyThemeComponent sx={{ m: 1 }} color="primary" variant="dashed">
           Primary
         </MyThemeComponent>
         <MyThemeComponent sx={{ m: 1 }} color="secondary">
@@ -75,7 +74,8 @@ const App = () => {
         <MyThemeComponent sx={{ m: 1 }} color="warning">
           Warning
         </MyThemeComponent>
-        <MyThemeComponent sx={{ m: 1 }}>None</MyThemeComponent>
+        <MyThemeComponent sx={{ m: 1 }}>None</MyThemeComponent> */}
+        words
       </ThemeProvider>
     </>
   );
