@@ -13,10 +13,13 @@ import {
   ListItemButton,
   ListItemText,
   ListSubheader,
+  Grid,
+  Paper,
 } from "@mui/material";
 import React from "react";
 
 const drawerWidth = 240;
+const appBarHeight = 64;
 
 const App: React.FC = () => {
   return (
@@ -24,6 +27,7 @@ const App: React.FC = () => {
       <Box
         sx={{
           display: "flex",
+          boxSizing: "border-box",
         }}
       >
         <CssBaseline />
@@ -141,6 +145,60 @@ const App: React.FC = () => {
             )}
           </List>
         </Drawer>
+        <Grid
+          container
+          spacing={4}
+          sx={{
+            p: 4,
+            mt: `${appBarHeight}px`,
+            width: "100%",
+            height: `calc(100vh - ${appBarHeight}px )`,
+            boxSizing: "border-box",
+          }}
+        >
+          <Grid item xs={8}>
+            <Paper
+              elevation={2}
+              sx={{
+                height: "100%",
+              }}
+            >
+              graph
+            </Paper>
+          </Grid>
+          <Grid item xs={4}>
+            <Paper
+              elevation={2}
+              sx={{
+                height: "100%",
+              }}
+            >
+              deposit
+            </Paper>
+          </Grid>
+          <Grid item xs={12}>
+            <Paper
+              elevation={2}
+              sx={{
+                height: "100%",
+              }}
+            >
+              table
+            </Paper>
+          </Grid>
+          <Grid item xs={12}>
+            <Typography
+              variant="caption"
+              align="center"
+              component="div"
+              sx={{
+                width: "100%",
+              }}
+            >
+              Copyright © Your Website 2022.
+            </Typography>
+          </Grid>
+        </Grid>
       </Box>
     </>
   );
