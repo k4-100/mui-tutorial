@@ -15,6 +15,7 @@ import {
   ListSubheader,
   Grid,
   Paper,
+  Link,
 } from "@mui/material";
 import React from "react";
 
@@ -163,17 +164,40 @@ const App: React.FC = () => {
                 height: "100%",
               }}
             >
-              graph
+              <Typography>Today</Typography>
             </Paper>
           </Grid>
           <Grid item xs={4}>
             <Paper
               elevation={2}
               sx={{
+                display: "flex",
+                flexDirection: "column",
                 height: "100%",
+                py: 2,
+                px: 1,
+                justifyContent: "space-between",
               }}
             >
-              deposit
+              <Box>
+                <Typography
+                  variant="h6"
+                  color="primary.main"
+                  component="div"
+                  sx={{
+                    fontWeight: "500",
+                  }}
+                >
+                  Recent Deposits
+                </Typography>
+                <Typography variant="h4" mt={1}>
+                  $3,024.00
+                </Typography>
+                <Typography variant="subtitle1" color="text.secondary" mt={1}>
+                  on 15 March, 2019
+                </Typography>
+              </Box>
+              <Link> View Balance</Link>
             </Paper>
           </Grid>
           <Grid item xs={12}>
