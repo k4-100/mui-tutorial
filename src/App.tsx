@@ -16,6 +16,7 @@ import {
   Grid,
   Paper,
   Link,
+  createTheme,
 } from "@mui/material";
 import React from "react";
 
@@ -30,6 +31,8 @@ import {
 } from "chart.js";
 import { Bar } from "react-chartjs-2";
 import { faker } from "@faker-js/faker";
+import { grey } from "@mui/material/colors";
+import { ThemeProvider } from "@mui/system";
 
 ChartJS.register(
   CategoryScale,
@@ -71,9 +74,13 @@ const data = {
   ],
 };
 
-// export function App() {
-//   return <Bar options={options} data={data} />;
-// }
+const theme = createTheme({
+  palette: {
+    background: {
+      default: grey[100],
+    },
+  },
+});
 
 const drawerWidth: number = 240;
 const appBarHeight: number = 64;
@@ -81,13 +88,16 @@ const appBarHeight: number = 64;
 const App: React.FC = () => {
   return (
     <>
+      <ThemeProvider theme={theme}>
+        <CssBaseline />
+      </ThemeProvider>
       <Box
         sx={{
           display: "flex",
           boxSizing: "border-box",
+          // height: "100vh",
         }}
       >
-        <CssBaseline />
         <AppBar
           position="fixed"
           sx={{
@@ -206,11 +216,13 @@ const App: React.FC = () => {
           container
           spacing={4}
           sx={{
-            p: 4,
+            px: 4,
             mt: `${appBarHeight}px`,
             width: "100%",
-            height: `calc(100vh - ${appBarHeight}px )`,
             boxSizing: "border-box",
+            "& > *:nth-of-type(-n + 2)": {
+              height: "275px",
+            },
           }}
         >
           <Grid item xs={8}>
@@ -240,6 +252,7 @@ const App: React.FC = () => {
                 display: "flex",
                 flexDirection: "column",
                 height: "100%",
+                alignSelf: "stretch",
                 py: 2,
                 px: 1,
                 justifyContent: "space-between",
@@ -266,7 +279,13 @@ const App: React.FC = () => {
               <Link> View Balance</Link>
             </Paper>
           </Grid>
-          <Grid item xs={12}>
+          <Grid
+            item
+            xs={12}
+            sx={{
+              height: "450px",
+            }}
+          >
             <Paper
               elevation={2}
               sx={{
