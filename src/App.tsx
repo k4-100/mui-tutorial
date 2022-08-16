@@ -24,12 +24,13 @@ import {
   Chart as ChartJS,
   CategoryScale,
   LinearScale,
-  BarElement,
   Title,
   Tooltip,
   Legend,
+  PointElement,
+  LineElement,
 } from "chart.js";
-import { Bar } from "react-chartjs-2";
+import { Line } from "react-chartjs-2";
 import { faker } from "@faker-js/faker";
 import { grey } from "@mui/material/colors";
 import { ThemeProvider } from "@mui/system";
@@ -37,7 +38,8 @@ import { ThemeProvider } from "@mui/system";
 ChartJS.register(
   CategoryScale,
   LinearScale,
-  BarElement,
+  PointElement,
+  LineElement,
   Title,
   Tooltip,
   Legend
@@ -47,30 +49,37 @@ const options = {
   responsive: true,
   plugins: {
     legend: {
-      position: "top" as const,
+      display: false,
+      // position: "top" as const,
     },
     title: {
-      display: true,
-      text: "Chart.js Bar Chart",
+      // display: true,
+      // text: "Chart.js Bar Chart",
     },
   },
 };
 
-const labels = ["January", "February", "March", "April", "May", "June", "July"];
+const labels: string[] = Array(25)
+  .fill("")
+  .map((_, i) => {
+    if (i >= 10) return `${i}:00`;
+
+    return `0${i}:00`;
+  });
 
 const data = {
   labels,
   datasets: [
     {
-      label: "Dataset 1",
+      label: "Sales",
       data: labels.map(() => faker.datatype.number({ min: 0, max: 1000 })),
       backgroundColor: "rgba(255, 99, 132, 0.5)",
     },
-    {
-      label: "Dataset 2",
-      data: labels.map(() => faker.datatype.number({ min: 0, max: 1000 })),
-      backgroundColor: "rgba(53, 162, 235, 0.5)",
-    },
+    // {
+    //   label: "Dataset 2",
+    //   data: labels.map(() => faker.datatype.number({ min: 0, max: 1000 })),
+    //   backgroundColor: "rgba(53, 162, 235, 0.5)",
+    // },
   ],
 };
 
@@ -242,7 +251,7 @@ const App: React.FC = () => {
               >
                 Today
               </Typography>
-              <Bar options={options} data={data} />
+              <Line options={options} data={data} />
             </Paper>
           </Grid>
           <Grid item xs={4}>
