@@ -138,10 +138,16 @@ const rows = [
 
 const CustomTable = () => {
   return (
-    <TableContainer component={Paper}>
+    <TableContainer>
       <Table sx={{ minWidth: 650 }} aria-label="simple table">
         <TableHead>
-          <TableRow>
+          <TableRow
+            sx={{
+              "& > *": {
+                fontWeight: "bold",
+              },
+            }}
+          >
             <TableCell>Date</TableCell>
             <TableCell> Name</TableCell>
             <TableCell> Ship To</TableCell>
@@ -150,11 +156,13 @@ const CustomTable = () => {
           </TableRow>
         </TableHead>
         <TableBody>
-          {rows.map((row) => {
+          {rows.map((row, i) => {
             return (
               <TableRow
-                key={row.name}
-                sx={{ "&:last-of-type td, &:last-child th": { border: 0 } }}
+                key={`${row.name}-${i}`}
+                sx={{
+                  "&:last-of-type td, &:last-of-type th": { border: 0 },
+                }}
               >
                 <TableCell component="th" scope="row">
                   {row.date}
@@ -434,6 +442,7 @@ const App: React.FC = () => {
                 Recent Orders
               </Typography>
               <CustomTable />
+              <Link href="/#">See more orders</Link>
             </Paper>
           </Grid>
           <Grid item xs={12}>
