@@ -17,6 +17,12 @@ import {
   Paper,
   Link,
   createTheme,
+  TableContainer,
+  TableRow,
+  TableHead,
+  Table,
+  TableCell,
+  TableBody,
 } from "@mui/material";
 import React from "react";
 
@@ -47,6 +53,7 @@ ChartJS.register(
 
 const options = {
   responsive: true,
+  // maintainAspectRatio: false,
   plugins: {
     legend: {
       display: false,
@@ -81,6 +88,88 @@ const data = {
     //   backgroundColor: "rgba(53, 162, 235, 0.5)",
     // },
   ],
+};
+
+const createData = (
+  date: string,
+  name: string,
+  shipTo: string,
+  paymentMethod: string,
+  saleAmount: string
+) => ({ date, name, shipTo, paymentMethod, saleAmount });
+
+const rows = [
+  createData(
+    "16 Mar, 2019",
+    "Elvis Presley",
+    "Tupelo, MS",
+    "VISA 3719",
+    "$312.44"
+  ),
+  createData(
+    "16 Mar, 2019",
+    "Elvis Presley",
+    "Tupelo, MS",
+    "VISA 3719",
+    "$312.44"
+  ),
+  createData(
+    "16 Mar, 2019",
+    "Elvis Presley",
+    "Tupelo, MS",
+    "VISA 3719",
+    "$312.44"
+  ),
+  createData(
+    "16 Mar, 2019",
+    "Elvis Presley",
+    "Tupelo, MS",
+    "VISA 3719",
+    "$312.44"
+  ),
+  createData(
+    "16 Mar, 2019",
+    "Elvis Presley",
+    "Tupelo, MS",
+    "VISA 3719",
+    "$312.44"
+  ),
+];
+
+const CustomTable = () => {
+  return (
+    <TableContainer component={Paper}>
+      <Table sx={{ minWidth: 650 }} aria-label="simple table">
+        <TableHead>
+          <TableRow>
+            <TableCell>Date</TableCell>
+            <TableCell> Name</TableCell>
+            <TableCell> Ship To</TableCell>
+            <TableCell> Payment Method</TableCell>
+            <TableCell> Sale Amount</TableCell>
+          </TableRow>
+        </TableHead>
+        <TableBody>
+          {rows.map((row) => {
+            return (
+              <TableRow
+                key={row.name}
+                sx={{ "&:last-of-type td, &:last-child th": { border: 0 } }}
+              >
+                <TableCell component="th" scope="row">
+                  {row.date}
+                </TableCell>
+                <TableCell align="right">{row.name}</TableCell>
+                <TableCell align="right">{row.shipTo}</TableCell>
+                <TableCell align="right">{row.paymentMethod}</TableCell>
+                <TableCell align="right">{row.saleAmount}</TableCell>
+              </TableRow>
+            );
+          })}
+        </TableBody>
+      </Table>
+    </TableContainer>
+  );
 };
 
 const theme = createTheme({
@@ -251,7 +340,37 @@ const App: React.FC = () => {
               >
                 Today
               </Typography>
-              <Line options={options} data={data} />
+              <Box
+                sx={{
+                  display: "flex",
+                  position: "relative",
+                  "& > *": {
+                    flex: 1,
+                  },
+                }}
+              >
+                <Typography
+                  variant="subtitle1"
+                  component="div"
+                  sx={{
+                    position: "absolute",
+                    transform: "rotate(-90deg) translateY(-50%)",
+                    bottom: "50%",
+                    // left: -1,
+                  }}
+                >
+                  Sales ($)
+                </Typography>
+                <Line
+                  options={options}
+                  data={data}
+                  style={{
+                    paddingLeft: "35px",
+                    maxHeight: "200px",
+                    paddingBottom: "10px",
+                  }}
+                />
+              </Box>
             </Paper>
           </Grid>
           <Grid item xs={4}>
@@ -299,9 +418,22 @@ const App: React.FC = () => {
               elevation={2}
               sx={{
                 height: "100%",
+                p: 1,
+                pt: 3,
+                pl: 2,
               }}
             >
-              table
+              <Typography
+                color="primary.main"
+                variant="h6"
+                component="div"
+                sx={{
+                  fontWeight: "550",
+                }}
+              >
+                Recent Orders
+              </Typography>
+              <CustomTable />
             </Paper>
           </Grid>
           <Grid item xs={12}>
