@@ -227,12 +227,32 @@ const App: React.FC = () => {
             >
               Dashboard
             </Typography>
-            <IconButton>
+            <IconButton
+              sx={{
+                position: "relative",
+              }}
+            >
               <Notifications
                 sx={{
                   color: "white",
                 }}
               />
+              <Typography
+                variant="subtitle2"
+                sx={{
+                  position: "absolute",
+                  top: "-2px",
+                  right: "-2px",
+                  color: "white",
+                  background: "purple",
+                  borderRadius: "50%",
+                  pt: "1px",
+                  width: "20px",
+                  height: "20px",
+                }}
+              >
+                4
+              </Typography>
             </IconButton>
           </Toolbar>
         </AppBar>
